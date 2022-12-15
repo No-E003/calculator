@@ -9,9 +9,10 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  border: 4px solid white;
+  border: 6px solid rgb(222, 190, 29);
+  border-radius: 6px;
   width: 400px;
-  height: 550px;
+  height: 540px;
 }
 
 .display {
@@ -25,7 +26,6 @@ body {
   flex-wrap: wrap;
   justify-content: center;
   height: 400px;
-  margin-top: 10px;
 }
 
 button {
