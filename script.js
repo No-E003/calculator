@@ -23,3 +23,23 @@ console.log(multiply(6,10));
 console.log(multiply(0,10));
 console.log(multiply(6.545,10));
 console.log(multiply(-6,10));
+
+//grabs all the buttons
+const buttons = document.querySelectorAll("button");
+const display = document.getElementById("#display");
+
+buttons.forEach((button) => {
+  button.addEventListener('click', () => {
+    input = button.value;
+    document.getElementById("display").innerHTML = input;
+  });
+});
+
+//document.getElementById("display").innerHTML = 5 + 6;
+//let btns = document.getElementsByClassName(".option");
+
+
+
+// btns.addEventListener("click", () => {
+//   document.getElementsByClassName(".display").value
+// }) 
