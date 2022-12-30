@@ -27,9 +27,14 @@ const display2 = document.getElementById("display2");
 //displays button values
  buttons.forEach((button) => {
    button.addEventListener('click', () => {
-     input = button.value;
-     display1.innerHTML += input;
-   })
+
+     if(button.value == "op") {
+      display2.innerHTML = "op";
+     }
+     else {
+      display1.innerHTML += button.value;
+     }
+   });
  });
 
 //let currentOperator = "null";
