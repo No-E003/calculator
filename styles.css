@@ -42,20 +42,38 @@ body {
 .first-row {
   display: flex;
   margin-top: 40px;
-  padding-right: 5px;
+  margin-right: 5px;
 }
 
 #display {
+  display: flex;
+  flex-direction: column;
   width: 320px;
-  height: 80px;
+  height: 100px;
   border: 2px solid white;
   border-radius: 10px;
   margin: 15px;
+  font-size: 30px;
+  color: white;
 }
 
+#display1 {
+  height: 50px;
+  width: 320px;
+  text-align: left;
+}
+
+#display2 {
+  height: 50px;
+  width: 320px;
+  text-align: right;
+}
+
+
 #clear {
+  margin-top: 25px;
   border: 2px solid black;
-  border-radius: 50%;
+  border-radius: 30%;
 }
 
 #clear:hover {
@@ -70,3 +88,4 @@ body {
   width: 460px;
   height: 630px;
 }
+
