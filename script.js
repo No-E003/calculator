@@ -23,16 +23,23 @@ const display2 = document.getElementById("display2");
 // const clear = document.querySelector("#clr");
 // const del = document.querySelector("#del");
 
+let operand1 = "";
+let operand2 = "";
+let operator = "";
+const equals = document.getElementById("equal");
+
 
 //displays button values
  buttons.forEach((button) => {
    button.addEventListener('click', () => {
 
-     if(button.value == "op") {
-      display2.innerHTML = "op";
+     if(button.value == "clr") {
+      display2.innerHTML = "";
+      display1.innerHTML = "";
      }
      else {
       display1.innerHTML += button.value;
+      operand1 +=button.value
      }
    });
  });
