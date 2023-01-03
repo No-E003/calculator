@@ -26,8 +26,7 @@ const display2 = document.getElementById("display2");
 let operand1 = "";
 let operand2 = "";
 let operator = "";
-const equals = document.getElementById("equal");
-
+let sum = ""
 
 //displays button values
  buttons.forEach((button) => {
@@ -36,10 +35,17 @@ const equals = document.getElementById("equal");
      if(button.value == "clr") {
       display2.innerHTML = "";
       display1.innerHTML = "";
-     }
-     else {
-      display1.innerHTML += button.value;
-      operand1 +=button.value
+     } else if(button.id == "num"){
+      display2.innerHTML += button.value;
+      operand1 += button.value;
+     } else if(button.id == "operator"){
+      display2.innerHTML += button.value;
+      operator += button.value;
+     } else if(button.id == "num"){
+      display2.innerHTML += button.value;
+      operand2 += button.value;
+     } else if(button.id == "equal") {
+      display1.innerHTML = operand1 + operator + operand2;
      }
    });
  });
