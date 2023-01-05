@@ -26,29 +26,49 @@ const display2 = document.getElementById("display2");
 let operand1 = "";
 let operand2 = "";
 let operator = "";
-let sum = ""
+let sum;
+const maxCount = 10;
+let calculate = false;
+
+buttons.forEach((button) => {
+  button.addEventListener("click", () => {
+    if(button.id == "clear") {
+      clear();
+    } else if(button.id == "num") {
+      display1.innerHTML += button.value;
+      operand1 += button.value;
+    }
+  })
+})
+
+function clear() {
+  operand1 = "";
+  operand2 = "";
+  display1.innerHTML = "";
+  display2.innerHTML = "";
+}
+
 
 //displays button values
- buttons.forEach((button) => {
-   button.addEventListener('click', () => {
+//  buttons.forEach((button) => {
+//    button.addEventListener('click', () => {
 
-     if(button.value == "clr") {
-      display2.innerHTML = "";
-      display1.innerHTML = "";
-     } else if(button.id == "num"){
-      display2.innerHTML += button.value;
-      operand1 += button.value;
-     } else if(button.id == "operator"){
-      display2.innerHTML += button.value;
-      operator += button.value;
-     } else if(button.id == "num"){
-      display2.innerHTML += button.value;
-      operand2 += button.value;
-     } else if(button.id == "equal") {
-      display1.innerHTML = operand1 + operator + operand2;
-     }
-   });
- });
+//      if(button.value == "clr") {
+//       display2.innerHTML = "";
+//       display1.innerHTML = "";
+//       operand1;
+//      } else if(button.id == "num"){
+//       display2.innerHTML += button.value;
+//       operand1 += button.value;
+//      } else if(button.id == "operator"){
+//       display2.innerHTML += button.value;
+//       operator += button.value;
+//      } else if(button.id == "num"){
+//       display2.innerHTML += button.value;
+//       operand2 += button.value;
+//      } else if(button.id == "equal") {
+//       display1.innerHTML = operand1 + operator + operand2;
+//      }
+//    });
+//  });
 
-//let currentOperator = "null";
-//let currentOperation = "null";
