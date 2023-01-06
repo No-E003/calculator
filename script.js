@@ -1,74 +1,67 @@
 //addition func
-const add = (a,b) => a + b;
-
+const add = (a,b) => Number(a) + Number(b);
 
 //sub function
-const sub = (a,b) => a - b;
+const sub = (a,b) => Number(a) - Number(b);
 
 //divide func
-const divide = (a,b) => a/b;
+const divide = (a,b) => Number(a)/Number(b);
 
 //multiply func
-const multiply = (a,b) => a * b;
+const multiply = (a,b) => Number(a) * Number(b);
 
 
-// //grabs all the buttons
-const buttons = document.querySelectorAll("button");
-const display = document.getElementById("display");
-const display1 = document.getElementById("display1");
-const display2 = document.getElementById("display2");
-// const numbs = document.querySelectorAll("#option");
-// const operator = document.querySelectorAll("#operator");
-// const decimal = document.querySelector("#decimal");
-// const clear = document.querySelector("#clr");
-// const del = document.querySelector("#del");
+//Operate Function
+function operate(a,b,operator) {
+  let result;
 
-let operand1 = "";
-let operand2 = "";
-let operator = "";
-let sum;
-const maxCount = 10;
-let calculate = false;
+  if(operator == "+") {
+    result = add(a,b);
+    return result;
+  }
+  else if(operator == "-") {
+    result = sub(a,b);
+    return result;
+  }
+  else if(operator == "*") {
+    result = multiply(a,b);
+    return result;
+  }
+  else {
+    result = divide(a,b);
+    return result;
+  }
+}
 
-buttons.forEach((button) => {
-  button.addEventListener("click", () => {
-    if(button.id == "clear") {
-      clear();
-    } else if(button.id == "num") {
-      display1.innerHTML += button.value;
-      operand1 += button.value;
-    }
-  })
-})
-
+//clear all
 function clear() {
-  operand1 = "";
-  operand2 = "";
+  operand1 = ""
+  operand2 = ""
   display1.innerHTML = "";
   display2.innerHTML = "";
 }
 
 
-//displays button values
-//  buttons.forEach((button) => {
-//    button.addEventListener('click', () => {
+// assigned variables for calculator
+const buttons = document.querySelectorAll("button");
+const display1 = document.getElementById("display1");
+const display2 = document.getElementById("display2");
+const operator = document.getElementById("op");
+const result = document.getElementById("equal");
+let operand1;
+let operand2;
 
-//      if(button.value == "clr") {
-//       display2.innerHTML = "";
-//       display1.innerHTML = "";
-//       operand1;
-//      } else if(button.id == "num"){
-//       display2.innerHTML += button.value;
-//       operand1 += button.value;
-//      } else if(button.id == "operator"){
-//       display2.innerHTML += button.value;
-//       operator += button.value;
-//      } else if(button.id == "num"){
-//       display2.innerHTML += button.value;
-//       operand2 += button.value;
-//      } else if(button.id == "equal") {
-//       display1.innerHTML = operand1 + operator + operand2;
-//      }
-//    });
-//  });
+//Initializing calculator once a button is pressed
+buttons.forEach((button) => {
+  button.addEventListener("click", () => {
+    if(button.id == "clear") {
+      clear();
+    }
+    else{
+      display1.innerHTML += button.value;
+    }
+  })
+})
 
+//figure out how to store values in seperate variables
+//once you have that, you can plug it in the opertate function and the system should work
