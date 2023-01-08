@@ -29,12 +29,12 @@ body {
   background: pink;
 }
 
-#operator {
+#op {
   border: 2px solid rgb(247, 180, 56);
   border-radius: 50%;
 }
 
-#operator:hover {
+#op:hover {
   color: white;
   background: rgb(1, 196, 250);
 }
