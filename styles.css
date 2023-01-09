@@ -15,8 +15,8 @@ body {
   width: 80px;
   font-size: 40px;
   margin: 15px;
-  color: white;
-  background: orange;
+  color: black;
+  background: white;
 }
 
 #num {
@@ -89,3 +89,11 @@ body {
   height: 630px;
 }
 
+#equal {
+  border-radius: 50%;
+}
+
+#equal:hover{
+  color: white;
+  background: orange;
+}

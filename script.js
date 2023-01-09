@@ -1,35 +1,29 @@
 //addition func
-const add = (a,b) => Number(a) + Number(b);
+let add = (a,b) => Number(a) + Number(b);
 
 //sub function
-const sub = (a,b) => Number(a) - Number(b);
+let sub = (a,b) => Number(a) - Number(b);
 
 //divide func
-const divide = (a,b) => Number(a)/Number(b);
+let divide = (a,b) => Number(a)/Number(b);
 
 //multiply func
-const multiply = (a,b) => Number(a) * Number(b);
+let multiply = (a,b) => Number(a) * Number(b);
 
 
 //Operate Function
 function operate(a,b,operator) {
-  let result;
-
   if(operator == "+") {
     result = add(a,b);
-    return result;
   }
   else if(operator == "-") {
     result = sub(a,b);
-    return result;
   }
-  else if(operator == "*") {
+  else if(operator == "x") {
     result = multiply(a,b);
-    return result;
   }
   else {
     result = divide(a,b);
-    return result;
   }
 }
 
@@ -73,8 +67,15 @@ clear.addEventListener("click", function() {
 })
 
 equal.addEventListener("click", function() {
+  display1.textContent = previousValue + " " + operator + " " + currentValue;
   operate(previousValue,currentValue,operator)
+  display2.textContent = result;   
 })
+
+
+
+
+
 
 function handleNumber(num) {
   if(currentValue.length <= 5) {
