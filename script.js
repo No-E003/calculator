@@ -41,7 +41,15 @@ clear.addEventListener("click", function() {
 equal.addEventListener("click", function() {
   calculate();
   display1.textContent = "";
-  display2.innerHTML = currentValue;
+  if(previousValue.length <= 5) {
+    display2.textContent = previousValue;
+  } else {
+    display2.textContent = previousValue.slice(0,5) + "...";
+  }
+})
+
+decimal.addEventListener("click", function() {
+  addDecimal();
 })
 
 
@@ -83,6 +91,11 @@ function roundNumber(num) {
   return Math.round(num * 1000)/1000;
 }
 
+function addDecimal() {
+  if(!currentValue.includes('.')) {
+    currentValue += '.';
+  }
+}
 
 //This is thought that I initially had
 //Break, Continue, etc. doesnt work on if loops 
