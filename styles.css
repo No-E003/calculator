@@ -74,6 +74,7 @@ body {
   margin-top: 25px;
   border: 2px solid black;
   border-radius: 30%;
+  border: 2px solid red;
 }
 
 #clear:hover {
@@ -96,4 +97,14 @@ body {
 #equal:hover{
   color: white;
   background: orange;
+}
+
+#decimal {
+  border-radius: 20%;
+  border: 2px solid pink;
+}
+
+#decimal:hover {
+  color: white;
+  background: yellowgreen;
 }

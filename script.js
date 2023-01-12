@@ -1,22 +1,9 @@
-
-//clear all
-function clearBtn() {
-  currentValue = "";
-  previousValue = "";
-  operator = "";
-  display1.innerHTML = "";
-  display2.innerHTML = "";
-}
-
-
-// assigned variables for calculator
 let numbers = document.querySelectorAll("#num");
 let display1 = document.getElementById("display1");
 let display2 = document.getElementById("display2");
 let equal = document.getElementById("equal");
 let decimal = document.getElementById("decimal");
 let operators = document.querySelectorAll("#op");
-
 let result = "";
 let currentValue = "";
 let operator = "";
@@ -28,47 +15,49 @@ numbers.forEach((number) => number.addEventListener("click", function(e) {
   display2.textContent = currentValue;
 }))
 
+//Stores button values in appropriate variable and displays it
 operators.forEach((op) => op.addEventListener("click", function(e) {
   handleOperator(e.target.textContent)
   display1.textContent = previousValue + " " + operator;
   display2.textContent = currentValue;
 }))
 
+//triggers cleaning all varaibales values and screen
 clear.addEventListener("click", function() {
   clearBtn();
 })
 
+//solves the equation depending on the variables values and operator
 equal.addEventListener("click", function() {
   calculate();
   display1.textContent = "";
-  if(previousValue.length <= 5) {
+  if(previousValue.length <= 7) {
     display2.textContent = previousValue;
   } else {
-    display2.textContent = previousValue.slice(0,5) + "...";
+    display2.textContent = previousValue.slice(0,7) + "...";
   }
 })
 
+//allows for decimal
 decimal.addEventListener("click", function() {
   addDecimal();
 })
 
-
-
-
-
-
+//sets a max amount of numbs
 function handleNumber(num) {
-  if(currentValue.length <= 5) {
+  if(currentValue.length <= 7) {
     currentValue +=num;
   }
 }
 
+//stores the operator value and moves values from current value to previous value
 function handleOperator(op) {
   operator = op;
   previousValue = currentValue;
   currentValue = "";
 }
 
+//calcualtes the two numbs based on operator
 function calculate() {
   previousValue = Number(previousValue);
   currentValue = Number(currentValue);
@@ -97,26 +86,11 @@ function addDecimal() {
   }
 }
 
-//This is thought that I initially had
-//Break, Continue, etc. doesnt work on if loops 
-// buttons.forEach((button) => {
-//   button.addEventListener("click", () => {
-//     if(button.id == "clear") {
-//       clear();
-//     }
-//     if(button.id == "num") {
-//       display1.innerHTML += button.value;
-//       operand2 += button.value;
-//     }
-//      if(button.id == "op") {
-//       display2.innerHTML = button.value;
-//       operator = button.value;
-//       operand1 += operand2
-//     }
-//     if(button.id == "num") {
-//       operand2 = "";
-//       operand2 += button.value;
-//     }
-//   })
-// })
-
+//clear all
+function clearBtn() {
+  currentValue = "";
+  previousValue = "";
+  operator = "";
+  display1.innerHTML = "";
+  display2.innerHTML = "";
+}
