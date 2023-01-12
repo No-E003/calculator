@@ -1,31 +1,3 @@
-//addition func
-let add = (a,b) => Number(a) + Number(b);
-
-//sub function
-let sub = (a,b) => Number(a) - Number(b);
-
-//divide func
-let divide = (a,b) => Number(a)/Number(b);
-
-//multiply func
-let multiply = (a,b) => Number(a) * Number(b);
-
-
-//Operate Function
-function operate(a,b,operator) {
-  if(operator == "+") {
-    result = add(a,b);
-  }
-  else if(operator == "-") {
-    result = sub(a,b);
-  }
-  else if(operator == "x") {
-    result = multiply(a,b);
-  }
-  else {
-    result = divide(a,b);
-  }
-}
 
 //clear all
 function clearBtn() {
@@ -67,9 +39,9 @@ clear.addEventListener("click", function() {
 })
 
 equal.addEventListener("click", function() {
-  display1.textContent = previousValue + " " + operator + " " + currentValue;
-  operate(previousValue,currentValue,operator)
-  display2.textContent = result;   
+  calculate();
+  display1.textContent = "";
+  display2.innerHTML = currentValue;
 })
 
 
@@ -89,8 +61,31 @@ function handleOperator(op) {
   currentValue = "";
 }
 
+function calculate() {
+  previousValue = Number(previousValue);
+  currentValue = Number(currentValue);
+
+  if(operator === "+") {
+    previousValue += currentValue;
+  } else if(operator === "-") {
+    previousValue -= currentValue;
+  } else if(operator === "x") {
+    previousValue *= currentValue;
+  } else{
+    previousValue /= currentValue;
+  }
+  previousValue = roundNumber(previousValue);
+  previousValue = previousValue.toString();
+  currentValue = previousValue.toString();
+}
+
+function roundNumber(num) {
+  return Math.round(num * 1000)/1000;
+}
 
 
+//This is thought that I initially had
+//Break, Continue, etc. doesnt work on if loops 
 // buttons.forEach((button) => {
 //   button.addEventListener("click", () => {
 //     if(button.id == "clear") {
@@ -111,7 +106,4 @@ function handleOperator(op) {
 //     }
 //   })
 // })
-
-//figure out how to store values in seperate variables
-//once you have that, you can plug it in the opertate function and the system should work
 
